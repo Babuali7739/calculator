@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>claculatr</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calcu">
+            <input type="text" class="inbox" placeholder="00">
+        </div>
+        <div class="butt">
+            <button class="opprators" value="+">+</button>
+            <button class="opprators" value="-">-</button>
+            <button class="opprators" value="*">*</button>
+            <button class="opprators" value="/">/</button>
+            <br>
+            <button class="number" value="9">9</button>
+            <button class="number" value="8">8</button>
+            <button class="number" value="7">7</button>
+            <button class="number" value="6">6</button>
+            <br>
+            <button class="number" value="5">5</button>
+            <button class="number" value="4">4</button>
+            <button class="number" value="3">3</button>
+            <button class="number" value="2">2</button>
+            <br>
+            <button class="number" value="1">1</button>
+            <button class="number" value="0">0</button>
+            <button class="number" value=".">.</button>
+
+            <button class="equal" value="=">=</button>
+            <br>
+            <button class="cencel" value="c">C</button>
+
+        </div>
+    </div>
+    <script>
+    var screen = document.querySelector(".calcu");
+    var screenitem = document.querySelector(".inbox");
+    var buttons = document.querySelectorAll(".butt");
+    var equal = document.querySelector(".equal");
+    var cancel = document.querySelector(".cencel");
+    var opr = document.querySelectorAll(".opprators");
+
+    
+    buttons.forEach(function(button){
+        button.addEventListener('click', function(e){
+            var ans = e.target.value;
+            document.querySelector(".inbox").value += ans;
+        })
+    });
+
+    equal.addEventListener('click', function(e){
+        if(screenitem.value == ""){
+            screenitem.value = "";
+        }else{
+            let answer = eval(screenitem.value);
+            screenitem.value = answer;
+        }
+    })
+
+    cancel.addEventListener('click', function(e){
+        screenitem.value = "";
+    })
+
+    </script>
+</body>
+</html>
